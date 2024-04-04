@@ -16,7 +16,7 @@ export function Content() {
 
   const handleIndexProducts = () => {
     console.log("handleIndexProducts");
-    axios.get("http://localhost:3000/products.json").then((response) => {
+    axios.get("/products.json").then((response) => {
       console.log(response.data);
       setProducts(response.data);
     });
@@ -25,7 +25,7 @@ export function Content() {
   const handleCreateProduct = (params, successCallback) => {
     console.log("handleCreateProduct", params);
     axios
-      .post("http://localhost:3000/products.json", params)
+      .post("/products.json", params)
       .then((response) => setProducts([...products, response.data]), successCallback());
   };
 
@@ -42,7 +42,7 @@ export function Content() {
 
   const handleUpdateProduct = (id, params, successCallback) => {
     console.log("handleUpdatePhoto", params);
-    axios.patch(`http:localhost:3000/products/${id}.json`, params).then((response) => {
+    axios.patch(`/products/${id}.json`, params).then((response) => {
       setProducts(
         products.map((product) => {
           if (product.id === response.data.id) {

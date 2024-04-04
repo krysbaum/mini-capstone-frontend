@@ -1,11 +1,12 @@
 import { Header } from "./Header";
 import { Content } from "./Content";
 import { Footer } from "./Footer";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
 import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
+
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://mini-capstone-api-lvcl.onrender.com";
 
 function App() {
   const [flashMessage, setFlashMessage] = useState("");
